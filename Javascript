@@ -1,1 +1,39 @@
+function createNFT(name, eyeColor, shirtType, bling) {
+    return {
+      name: name,
+      eyeColor: eyeColor,
+      shirtType: shirtType,
+      bling: bling
+    };
+  }
+
+  let nftCollection = [];
+
+  function printNFTDetails(nft) {
+    console.log(`Name: ${nft.name}`);
+    console.log(`Eye Color: ${nft.eyeColor}`);
+    console.log(`Shirt Type: ${nft.shirtType}`);
+    console.log(`Bling: ${nft.bling}`);
+  }
+
+  function printAllNFTs(nftCollection) {
+    nftCollection.forEach((nft, index) => {
+      console.log(`NFT #${index + 1}`);
+      printNFTDetails(nft);
+      console.log('---');
+    });
+  }
+
+
+  const nft1 = createNFT("Cool Cat", "Blue", "T-Shirt", "Gold Chain");
+  const nft2 = createNFT("Funky Monkey", "Green", "Hoodie", "Diamond Ring");
+  const nft3 = createNFT("Slick Snake", "Red", "Jacket", "Silver Bracelet");
+
+
+  nftCollection.push(nft1);
+  nftCollection.push(nft2);
+  nftCollection.push(nft3);
+
+
+  printAllNFTs(nftCollection);
 
