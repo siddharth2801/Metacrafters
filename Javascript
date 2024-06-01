@@ -1,39 +1,34 @@
-function createNFT(name, eyeColor, shirtType, bling) {
-    return {
-      name: name,
-      eyeColor: eyeColor,
-      shirtType: shirtType,
-      bling: bling
+const NFTs = [];
+
+function mintNFT(_id, _owner, _value, _status) {
+    const nft = {
+        id: _id,
+        owner: _owner,
+        value: _value,
+        status: _status  
     };
-  }
 
-  let nftCollection = [];
+    NFTs.push(nft);
+    console.log("Minted: " + _id);
+}
 
-  function printNFTDetails(nft) {
-    console.log(`Name: ${nft.name}`);
-    console.log(`Eye Color: ${nft.eyeColor}`);
-    console.log(`Shirt Type: ${nft.shirtType}`);
-    console.log(`Bling: ${nft.bling}`);
-  }
+function listNFTs() {
+    for (let i = 0; i < NFTs.length; i++) {
+        console.log(`\nID: \t\t${NFTs[i].id}`);
+        console.log(`Owner: \t\t${NFTs[i].owner}`);
+        console.log(`Value: \t\t${NFTs[i].value}`);
+        console.log(`Status: \t${NFTs[i].status}`);  
+    }
+}
 
-  function printAllNFTs(nftCollection) {
-    nftCollection.forEach((nft, index) => {
-      console.log(`NFT #${index + 1}`);
-      printNFTDetails(nft);
-      console.log('---');
-    });
-  }
+function getTotalSupply() {
+    console.log("Total NFTs created: " + NFTs.length);
+}
 
+mintNFT("001", "Alice", 1000, "active");
+mintNFT("002", "Bob", 2000, "inactive");
+mintNFT("003", "Charlie", 1500, "active");
+mintNFT("004", "Dana", 3000, "inactive");
 
-  const nft1 = createNFT("Cool Cat", "Blue", "T-Shirt", "Gold Chain");
-  const nft2 = createNFT("Funky Monkey", "Green", "Hoodie", "Diamond Ring");
-  const nft3 = createNFT("Slick Snake", "Red", "Jacket", "Silver Bracelet");
-
-
-  nftCollection.push(nft1);
-  nftCollection.push(nft2);
-  nftCollection.push(nft3);
-
-
-  printAllNFTs(nftCollection);
-
+listNFTs();
+getTotalSupply();
